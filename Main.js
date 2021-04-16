@@ -35,8 +35,6 @@ function setup()
     // draws the start and end node
     drawTile(start.x, start.y, blue);
     drawTile(end.x, end.y, red);
-
-    drawBlocked();
     drawAStar();
 }
 
@@ -75,11 +73,11 @@ function drawBlocked()
 // draws the path that A* has calcuated
 function drawAStar()
 {
-    var path = new AStarAlorithm(this.start, this.end, this.grid);
-    var foo = path.computePath();
-    for (i = 0; i < foo.length; i++)
+    var aStar = new AStarAlorithm(this.start, this.end, this.grid);
+    var path = aStar.computePath();
+    for (i = 0; i < path.length; i++)
     {
-        drawTile(foo[i].x, foo[i].y, pink);
+        drawTile(path[i].x, path[i].y, pink);
     }
 }
 
@@ -104,6 +102,5 @@ function mouseClicked()
         blocked.push(tileClicked);
         grid[x][y] = true;
     }
-    console.log(grid);
     drawUpdate();
 }

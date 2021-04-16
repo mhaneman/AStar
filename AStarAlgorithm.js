@@ -31,9 +31,6 @@ class AStarAlorithm
                 .filter(b => !this.isBlocked(b))
                 .forEach(i => 
                 {
-                    fill(254, 252, 55);
-                    rect(i.x * tileWidth, i.y * tileHeight, tileWidth, tileHeight);
-
                     var tenative_gScore = gScore.get(current) + 1;
                     var neighbor_gScore = (gScore.get(i) == null) ? 0 : gScore.get(i);
                     if (tenative_gScore < neighbor_gScore || gScore.get(i) == null)
